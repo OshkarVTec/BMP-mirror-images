@@ -13,11 +13,6 @@ void mirror(int num)
 {
    //cout << "thread" << omp_get_thread_num() << endl;
    FILE *image, *outputImage, *lecturas;
-/*     char str[];
-   strcpy(str, "image");
-   strcpy(str, (char[2]) { (char) in, '\0' });
-   strcpy(str, ".bmp");
-   printf(str); */
    string in = "image" + to_string(num) + ".bmp";
    image = fopen(in.c_str(),"rb");          //Imagen original a transformar
    string out = "img_rot" +  to_string(num) + ".bmp";
@@ -34,7 +29,7 @@ void mirror(int num)
    ancho = (long)xx[20]*65536+(long)xx[19]*256+(long)xx[18];
    alto = (long)xx[24]*65536+(long)xx[23]*256+(long)xx[22];
    // printf("largo img %li\n",alto);
-   // printf("ancho img %li\n",ancho);echo "# BMP-mirror-images" >> README.md
+   // printf("ancho img %li\n",ancho);
 
    unsigned char* arr_in = (unsigned char*)malloc(ancho*alto*3*sizeof(unsigned char));
    unsigned char* arr_out = (unsigned char*)malloc(ancho*alto*3*sizeof(unsigned char));
