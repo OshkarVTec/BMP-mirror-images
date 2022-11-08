@@ -84,9 +84,11 @@ void rotation(int num)
 }
 
 int main(){
+   //Se utiliza paralelizacion de tareas. Cada thread se encarga de cada iteración, por lo que cada thread llama a la función con 
+   //una imagen diferente y la procesa completamente.
    #pragma omp parallel
    #pragma omp for
-   for (int i = 0; i < 6; i++){
+   for (int i = 0; i < 20; i++){
       rotation(i+1);
    }
    return 0;
