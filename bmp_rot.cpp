@@ -9,7 +9,7 @@ struct my_pixel{
   unsigned char r, g, b;
 };
 
-void rotation(int num)
+void mirror(int num)
 {
    //cout << "thread" << omp_get_thread_num() << endl;
    FILE *image, *outputImage, *lecturas;
@@ -89,7 +89,7 @@ int main(){
    #pragma omp parallel
    #pragma omp for
    for (int i = 0; i < 20; i++){
-      rotation(i+1);
+      mirror(i+1);
    }
    return 0;
 }
