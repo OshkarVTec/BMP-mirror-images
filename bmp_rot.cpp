@@ -81,10 +81,14 @@ void mirror(int num)
 int main(){
    //Se utiliza paralelizacion de tareas. Cada thread se encarga de cada iteración, por lo que cada thread llama a la función con 
    //una imagen diferente y la procesa completamente.
+   double t1=omp_get_wtime();
    #pragma omp parallel
    #pragma omp for
-   for (int i = 0; i < 20; i++){
+   for (int i = 0; i < 2; i++){
       mirror(i+1);
    }
+   double t2=omp_get_wtime();
+   double tiempo=t2-t1;
+   printf("tomo (%lf) segundos\n", tiempo);
    return 0;
 }
